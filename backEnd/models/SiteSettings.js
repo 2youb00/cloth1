@@ -1,8 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose")
 
 const siteSettingsSchema = new mongoose.Schema({
   siteName: { type: String, required: true },
-  heroImage: { type: String, required: true },
+  heroImageDesktop: { type: String, required: true },
+  heroImageMobile: { type: String, required: true },
   heroTitle: { type: String, required: true },
   heroSubtitle: { type: String, required: true },
   categories: [{ type: String, required: true }],
@@ -13,6 +14,6 @@ const siteSettingsSchema = new mongoose.Schema({
     facebook: { type: String },
     instagram: { type: String },
   },
-});
+})
 
-module.exports = mongoose.model('SiteSettings', siteSettingsSchema);
+module.exports = mongoose.model("SiteSettings", siteSettingsSchema)
