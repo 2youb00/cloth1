@@ -14,7 +14,7 @@ export default function CategoryPage() {
     const fetchProducts = async () => {
       try {
         setLoading(true)
-        const response = await axios.get(`http://localhost:5000/api/products?category=${category}`)
+        const response = await axios.get(`https://cloth1-1.onrender.com/api/products?category=${category}`)
         setProducts(response.data.products)
         setLoading(false)
       } catch (err) {

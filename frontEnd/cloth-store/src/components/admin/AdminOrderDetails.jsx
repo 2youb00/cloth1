@@ -14,7 +14,7 @@ export default function AdminOrderDetails() {
 
   const fetchOrderDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/admin/orders/${id}`, {
+      const response = await axios.get(`https://cloth1-1.onrender.com/api/admin/orders/${id}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
         },

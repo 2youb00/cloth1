@@ -21,7 +21,7 @@ export default function AdminOrderList() {
   const fetchOrders = async () => {
     setIsLoading(true)
     try {
-      const response = await axios.get('http://localhost:5000/api/orders/all', {
+      const response = await axios.get('https://cloth1-1.onrender.com/api/orders/all', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
         },
@@ -49,7 +49,7 @@ export default function AdminOrderList() {
 
   const updateOrderStatus = async (orderId, newStatus) => {
     try {
-      await axios.patch(`http://localhost:5000/api/orders/${orderId}`, 
+      await axios.patch(`https://cloth1-1.onrender.com/api/orders/${orderId}`, 
         { status: newStatus },
         {
           headers: {
@@ -66,7 +66,7 @@ export default function AdminOrderList() {
 
   const cancelOrder = async (orderId) => {
     try {
-      await axios.post(`http://localhost:5000/api/orders/${orderId}/cancel`, 
+      await axios.post(`https://cloth1-1.onrender.com/api/orders/${orderId}/cancel`, 
         { reason: 'Cancelled by admin' },
         {
           headers: {
@@ -85,7 +85,7 @@ export default function AdminOrderList() {
   const deleteOrder = async (orderId) => {
     setIsLoading(true)
     try {
-      await axios.delete(`http://localhost:5000/api/orders/delete-order/${orderId}`, {
+      await axios.delete(`https://cloth1-1.onrender.com/api/orders/delete-order/${orderId}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
         },

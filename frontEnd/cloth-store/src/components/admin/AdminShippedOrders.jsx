@@ -12,7 +12,7 @@ export default function AdminShippedOrders() {
 
   const fetchShippedOrders = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/orders/all', {
+      const response = await axios.get('https://cloth1-1.onrender.com/api/orders/all', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
         },

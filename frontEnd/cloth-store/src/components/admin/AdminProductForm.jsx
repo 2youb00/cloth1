@@ -31,7 +31,7 @@ export default function AdminProductForm() {
 
   const fetchProduct = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/products/${id}`, {
+      const response = await axios.get(`https://cloth1-1.onrender.com/api/products/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
         },
@@ -106,7 +106,7 @@ export default function AdminProductForm() {
         formData.append("images", file)
       })
 
-      const url = id ? `http://localhost:5000/api/products/${id}` : "http://localhost:5000/api/products"
+      const url = id ? `https://cloth1-1.onrender.com/api/products/${id}` : "https://cloth1-1.onrender.com/api/products"
       const method = id ? "patch" : "post"
       await axios({
         method,

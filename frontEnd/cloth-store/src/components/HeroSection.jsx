@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 export default function HeroSection({ siteSettings }) {
   const isMobile = window.innerWidth < 768
   const heroImage = isMobile ? siteSettings?.heroImageMobile : siteSettings?.heroImageDesktop
-  const imageSrc = heroImage?.startsWith("/uploads") ? `http://localhost:5000${heroImage}` : heroImage
+  const imageSrc = heroImage?.startsWith("/uploads") ? `https://cloth1-1.onrender.com${heroImage}` : heroImage
 
   return (
     <div className="relative h-screen">

@@ -15,7 +15,7 @@ export default function ProductDetails() {
     const fetchProduct = async () => {
       try {
         setLoading(true)
-        const response = await axios.get(`http://localhost:5000/api/products/${id}`)
+        const response = await axios.get(`https://cloth1-1.onrender.com/api/products/${id}`)
         setProduct(response.data)
         setLoading(false)
       } catch (err) {
@@ -62,7 +62,7 @@ export default function ProductDetails() {
       <div className="flex flex-col md:flex-row">
         <div className="md:w-1/2">
           <img 
-            src={`http://localhost:5000${product.images[selectedImage]}`} 
+            src={`https://cloth1-1.onrender.com${product.images[selectedImage]}`} 
             alt={product.name} 
             className="w-full h-auto object-cover rounded-lg shadow-lg"
           />
@@ -70,7 +70,7 @@ export default function ProductDetails() {
             {product.images.map((image, index) => (
               <img
                 key={index}
-                src={`http://localhost:5000${image}`}
+                src={`https://cloth1-1.onrender.com${image}`}
                 alt={`${product.name} ${index + 1}`}
                 className={`w-20 h-20 object-cover cursor-pointer ${selectedImage === index ? 'border-2 border-blue-500' : ''}`}
                 onClick={() => setSelectedImage(index)}

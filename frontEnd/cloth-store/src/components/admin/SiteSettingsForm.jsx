@@ -24,7 +24,7 @@ export default function SiteSettingsForm() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/site-settings", {
+      .get("https://cloth1-1.onrender.com/api/site-settings", {
         headers: { Authorization: `Bearer ${localStorage.getItem("adminToken")}` },
       })
       .then((res) => {
@@ -80,7 +80,7 @@ export default function SiteSettingsForm() {
     if (mobileImageFile) formData.append("heroImageMobile", mobileImageFile)
 
     try {
-      const response = await axios.put("http://localhost:5000/api/site-settings", formData, {
+      const response = await axios.put("https://cloth1-1.onrender.com/api/site-settings", formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
           "Content-Type": "multipart/form-data",
@@ -117,7 +117,7 @@ export default function SiteSettingsForm() {
           <img
             src={
               settings.heroImageDesktop.startsWith("/uploads")
-                ? `http://localhost:5000${settings.heroImageDesktop}`
+                ? `https://cloth1-1.onrender.com${settings.heroImageDesktop}`
                 : settings.heroImageDesktop
             }
             className="h-32 w-64 object-cover rounded border"
@@ -135,7 +135,7 @@ export default function SiteSettingsForm() {
           <img
             src={
               settings.heroImageMobile.startsWith("/uploads")
-                ? `http://localhost:5000${settings.heroImageMobile}`
+                ? `https://cloth1-1.onrender.com${settings.heroImageMobile}`
                 : settings.heroImageMobile
             }
             className="h-32 w-32 object-cover rounded border"

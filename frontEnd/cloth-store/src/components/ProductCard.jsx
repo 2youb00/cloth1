@@ -9,11 +9,11 @@ export default function ProductCard({ product }) {
   const handleMouseLeave = () => setIsHovered(false)
 
   const mainImage = product.images && product.images.length > 0
-    ? `http://localhost:5000${product.images[0]}`
+    ? `https://cloth1-1.onrender.com${product.images[0]}`
     : '/placeholder.jpg'
 
   const hoverImage = product.images && product.images.length > 1
-    ? `http://localhost:5000${product.images[1]}`
+    ? `https://cloth1-1.onrender.com${product.images[1]}`
     : mainImage
 
   return (

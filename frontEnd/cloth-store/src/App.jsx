@@ -50,7 +50,7 @@ export default function App() {
 
   const fetchSiteSettings = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/site-settings', {
+      const response = await axios.get('https://cloth1-1.onrender.com/api/site-settings', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
         }

@@ -11,7 +11,7 @@ export default function AdminProductList() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/products', {
+      const response = await axios.get('https://cloth1-1.onrender.com/api/products', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
         },
@@ -25,7 +25,7 @@ export default function AdminProductList() {
   const deleteProduct = async (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/products/${id}`, {
+        await axios.delete(`https://cloth1-1.onrender.com/api/products/${id}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
           },

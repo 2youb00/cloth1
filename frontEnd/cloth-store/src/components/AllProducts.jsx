@@ -12,8 +12,8 @@ export default function ProductGrid({ title, category }) {
       try {
         setLoading(true)
         const url = category 
-          ? `http://localhost:5000/api/products?category=${category}&featured=true`
-          : 'http://localhost:5000/api/products?featured=true'
+          ? `https://cloth1-1.onrender.com/api/products?category=${category}&featured=true`
+          : 'https://cloth1-1.onrender.com/api/products?featured=true'
         const response = await axios.get(url)
         setProducts(response.data.products)
         setLoading(false)

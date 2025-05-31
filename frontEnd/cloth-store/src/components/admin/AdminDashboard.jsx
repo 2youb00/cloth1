@@ -15,7 +15,7 @@ export default function AdminDashboard() {
 
   const fetchDashboardStats = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/dashboard-stats', {
+      const response = await axios.get('https://cloth1-1.onrender.com/api/admin/dashboard-stats', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
         }

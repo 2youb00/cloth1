@@ -46,7 +46,7 @@ export default function Checkout() {
 
       const totalAmount = cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
       
-      const response = await axios.post('http://localhost:5000/api/orders', 
+      const response = await axios.post('https://cloth1-1.onrender.com/api/orders', 
         {
           products: cartItems.map(item => ({
             product: item.product._id,

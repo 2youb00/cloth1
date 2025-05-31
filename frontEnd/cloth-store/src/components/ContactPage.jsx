@@ -16,7 +16,7 @@ export default function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:5000/api/contact', formData)
+      await axios.post('https://cloth1-1.onrender.com/api/contact', formData)
       setStatus('success')
       setFormData({ name: '', email: '', message: '' })
     } catch (error) {

@@ -15,7 +15,7 @@ export default function AdminCancelledOrders() {
     setIsLoading(true)
     try {
       console.log('Fetching cancelled orders...');
-      const response = await axios.get('http://localhost:5000/api/orders/get/cancelled', {
+      const response = await axios.get('https://cloth1-1.onrender.com/api/orders/get/cancelled', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
         },
