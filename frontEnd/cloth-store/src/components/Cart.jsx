@@ -38,7 +38,7 @@ export default function Cart() {
                 <img src={`https://cloth1-1.onrender.com${item.product.images[0]}`} className="w-16 h-16 object-cover mr-4" />
                 <div>
                   <h2 className="text-lg font-semibold">{item.product.name}</h2>
-                  <p className="text-gray-600">${item.product.price.toFixed(2)}</p>
+                  <p className="text-gray-600">DZD {item.product.price.toFixed(2)}</p>
                 </div>
               </div>
               <div className="flex items-center">
@@ -67,7 +67,7 @@ export default function Cart() {
           ))}
           <div className="mt-6">
             <h3 className="text-xl font-semibold">
-              Total: ${total.toFixed(2)}
+              Total: DZD {total.toFixed(2)}
             </h3>
             <Link
               to="/checkout"

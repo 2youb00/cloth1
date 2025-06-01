@@ -63,10 +63,7 @@ export default function Header({ siteSettings }) {
                   <LogIn size={20} className="mr-1" />
                   <span>Login</span>
                 </Link>
-                <Link to="/adimn" className="hover:text-gray-300 transition-colors flex items-center">
-                  <LogIn size={20} className="mr-1" />
-                  <span>admin</span>
-                </Link>
+                
                 <Link to="/register" className="hover:text-gray-300 transition-colors flex items-center">
                   <User size={20} className="mr-1" />
                   <span>Register</span>

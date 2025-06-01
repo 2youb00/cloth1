@@ -101,11 +101,11 @@ export default function Checkout() {
         {cartItems.map((item) => (
           <div key={item.product._id} className="flex justify-between items-center mb-2">
             <span>{item.product.name} x {item.quantity}</span>
-            <span>${(item.product.price * item.quantity).toFixed(2)}</span>
+            <span>DZD {(item.product.price * item.quantity).toFixed(2)}</span>
           </div>
         ))}
         <div className="text-xl font-bold mt-4">
-          Total: ${cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0).toFixed(2)}
+          Total: DZD {cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0).toFixed(2)}
         </div>
       </div>
       <form onSubmit={handleSubmit} className="max-w-lg">
