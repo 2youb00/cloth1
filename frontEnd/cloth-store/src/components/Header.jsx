@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
-import { ShoppingBag, User, LogIn, LogOut, Menu, X, Search } from "lucide-react"
+import { ShoppingCart, User, LogIn, LogOut, Menu, X, Search } from "lucide-react"
 
 export default function Header({ siteSettings }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -70,10 +70,13 @@ export default function Header({ siteSettings }) {
             </div>
             {isLoggedIn ? (
               <>
-                <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
-                  <ShoppingBag size={20} className="mr-1" />
-                  <span>Cart </span>
-                </Link>
+            <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
+             <span className="bg-gray-200 rounded-full p-1.5 flex items-center justify-center mr-1">
+             <ShoppingCart size={20} className="text-black" />
+             </span>
+             </Link>
+
+
                 <button onClick={handleLogout} className="hover:text-gray-300 transition-colors flex items-center">
                   <LogOut size={20} className="mr-1" />
                   <span>Logout</span>
@@ -90,10 +93,12 @@ export default function Header({ siteSettings }) {
                   <User size={20} className="mr-1" />
                   <span>Register</span>
                 </Link>
-                 <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
-                    <ShoppingBag size={20} className="mr-2" />
-                    <span>Cart </span>
-                  </Link>
+                  <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
+             <span className="bg-gray-200 rounded-full p-1.5 flex items-center justify-center mr-1">
+             <ShoppingCart size={20} className="text-black" />
+             </span>
+             </Link>
+
               </>
             )}
           </div>
@@ -127,7 +132,7 @@ export default function Header({ siteSettings }) {
               {isLoggedIn ? (
                 <>
                   <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
-                    <ShoppingBag size={20} className="mr-2" />
+                    <ShoppingCart size={20} className="mr-2" />
                     <span>Cart </span>
                   </Link>
                   <button onClick={handleLogout} className="hover:text-gray-300 transition-colors flex items-center">
@@ -146,7 +151,7 @@ export default function Header({ siteSettings }) {
                     <span>Register</span>
                   </Link>
                    <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
-                    <ShoppingBag size={20} className="mr-2" />
+                    <ShoppingCart size={20} className="mr-2" />
                     <span>Cart </span>
                   </Link>
                 </>
