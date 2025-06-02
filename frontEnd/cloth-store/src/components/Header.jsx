@@ -49,7 +49,7 @@ export default function Header({ siteSettings }) {
           <Link to="/" className="text-2xl font-bold">
             {siteSettings.siteName}
           </Link>
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex justify-center items-center mx-auto space-x-6">
             {siteSettings.categories &&
               siteSettings.categories.map((category, index) => (
                 <Link
@@ -90,6 +90,10 @@ export default function Header({ siteSettings }) {
                   <User size={20} className="mr-1" />
                   <span>Register</span>
                 </Link>
+                 <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
+                    <ShoppingBag size={20} className="mr-2" />
+                    <span>Cart </span>
+                  </Link>
               </>
             )}
           </div>
@@ -124,7 +128,7 @@ export default function Header({ siteSettings }) {
                 <>
                   <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
                     <ShoppingBag size={20} className="mr-2" />
-                    <span>Cart ({cartCount})</span>
+                    <span>Cart </span>
                   </Link>
                   <button onClick={handleLogout} className="hover:text-gray-300 transition-colors flex items-center">
                     <LogOut size={20} className="mr-2" />
@@ -140,6 +144,10 @@ export default function Header({ siteSettings }) {
                   <Link to="/register" className="hover:text-gray-300 transition-colors flex items-center">
                     <User size={20} className="mr-2" />
                     <span>Register</span>
+                  </Link>
+                   <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
+                    <ShoppingBag size={20} className="mr-2" />
+                    <span>Cart </span>
                   </Link>
                 </>
               )}
