@@ -191,7 +191,8 @@ export default function SiteSettingsForm() {
           Add Category
         </button>
       </div>
-
+      <div className="felx flex-row space-y-4">
+     <label>Footer</label>
       <input
         type="text"
         name="footerText"
@@ -239,6 +240,7 @@ export default function SiteSettingsForm() {
         placeholder="Instagram Link"
         className="block w-full rounded-md border-gray-300 shadow-sm px-2 py-2"
       />
+      </div>
 
       <button type="submit" className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
         Save Settings
