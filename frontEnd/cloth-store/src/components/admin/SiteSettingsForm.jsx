@@ -21,6 +21,7 @@ export default function SiteSettingsForm() {
   const [mobileImageFile, setMobileImageFile] = useState(null)
   const [desktopImagePreview, setDesktopImagePreview] = useState("")
   const [mobileImagePreview, setMobileImagePreview] = useState("")
+  const [isUploading, setIsUploading] = useState(false)
 
   useEffect(() => {
     axios
@@ -72,20 +73,38 @@ export default function SiteSettingsForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const formData = new FormData()
-    Object.entries(settings).forEach(([key, value]) => {
-      formData.append(key, typeof value === "object" ? JSON.stringify(value) : value)
-    })
-    if (desktopImageFile) formData.append("heroImageDesktop", desktopImageFile)
-    if (mobileImageFile) formData.append("heroImageMobile", mobileImageFile)
+    setIsUploading(true)
 
     try {
+      const formData = new FormData()
+
+      // Add text fields
+      Object.entries(settings).forEach(([key, value]) => {
+        if (key !== "heroImageDesktop" && key !== "heroImageMobile") {
+          formData.append(key, typeof value === "object" ? JSON.stringify(value) : value)
+        }
+      })
+
+      // Add image files
+      if (desktopImageFile) {
+        formData.append("heroImageDesktop", desktopImageFile)
+      } else {
+        formData.append("heroImageDesktop", settings.heroImageDesktop || "")
+      }
+
+      if (mobileImageFile) {
+        formData.append("heroImageMobile", mobileImageFile)
+      } else {
+        formData.append("heroImageMobile", settings.heroImageMobile || "")
+      }
+
       const response = await axios.put("https://cloth1-1.onrender.com/api/site-settings", formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
           "Content-Type": "multipart/form-data",
         },
       })
+
       setSettings(response.data)
       setDesktopImagePreview("")
       setMobileImagePreview("")
@@ -93,7 +112,10 @@ export default function SiteSettingsForm() {
       setMobileImageFile(null)
       alert("Settings updated successfully")
     } catch (error) {
-      alert("Failed to update settings")
+      console.error("Error updating settings:", error)
+      alert("Failed to update settings: " + (error.response?.data?.message || error.message))
+    } finally {
+      setIsUploading(false)
     }
   }
 
@@ -115,16 +137,17 @@ export default function SiteSettingsForm() {
         <label>Hero Image (Desktop)</label>
         {(settings.heroImageDesktop && !desktopImagePreview && (
           <img
-            src={
-              settings.heroImageDesktop.startsWith("/uploads")
-                ? `https://cloth1-1.onrender.com${settings.heroImageDesktop}`
-                : settings.heroImageDesktop
-            }
+            src={settings.heroImageDesktop || "/placeholder.svg"}
             className="h-32 w-64 object-cover rounded border"
+            alt="Desktop hero"
           />
         )) ||
           (desktopImagePreview && (
-            <img src={desktopImagePreview || "/placeholder.svg"} className="h-32 w-64 object-cover rounded border" />
+            <img
+              src={desktopImagePreview || "/placeholder.svg"}
+              className="h-32 w-64 object-cover rounded border"
+              alt="Desktop preview"
+            />
           ))}
         <input type="file" onChange={handleDesktopImageChange} accept="image/*" className="block w-full px-2 py-2" />
       </div>
@@ -133,16 +156,17 @@ export default function SiteSettingsForm() {
         <label>Hero Image (Mobile)</label>
         {(settings.heroImageMobile && !mobileImagePreview && (
           <img
-            src={
-              settings.heroImageMobile.startsWith("/uploads")
-                ? `https://cloth1-1.onrender.com${settings.heroImageMobile}`
-                : settings.heroImageMobile
-            }
+            src={settings.heroImageMobile || "/placeholder.svg"}
             className="h-32 w-32 object-cover rounded border"
+            alt="Mobile hero"
           />
         )) ||
           (mobileImagePreview && (
-            <img src={mobileImagePreview || "/placeholder.svg"} className="h-32 w-32 object-cover rounded border" />
+            <img
+              src={mobileImagePreview || "/placeholder.svg"}
+              className="h-32 w-32 object-cover rounded border"
+              alt="Mobile preview"
+            />
           ))}
         <input type="file" onChange={handleMobileImageChange} accept="image/*" className="block w-full px-2 py-2" />
       </div>
@@ -192,58 +216,62 @@ export default function SiteSettingsForm() {
         </button>
       </div>
       <div className="felx flex-row space-y-4">
-     <label>Footer</label>
-      <input
-        type="text"
-        name="footerText"
-        value={settings.footerText}
-        onChange={handleChange}
-        placeholder="Footer Text"
-        className="block w-full rounded-md border-gray-300 shadow-sm px-2 py-2"
-        required
-      />
+        <label>Footer</label>
+        <input
+          type="text"
+          name="footerText"
+          value={settings.footerText}
+          onChange={handleChange}
+          placeholder="Footer Text"
+          className="block w-full rounded-md border-gray-300 shadow-sm px-2 py-2"
+          required
+        />
 
-      <input
-        type="email"
-        name="contactEmail"
-        value={settings.contactEmail}
-        onChange={handleChange}
-        placeholder="Contact Email"
-        className="block w-full rounded-md border-gray-300 shadow-sm px-2 py-2"
-        required
-      />
+        <input
+          type="email"
+          name="contactEmail"
+          value={settings.contactEmail}
+          onChange={handleChange}
+          placeholder="Contact Email"
+          className="block w-full rounded-md border-gray-300 shadow-sm px-2 py-2"
+          required
+        />
 
-      <input
-        type="tel"
-        name="contactPhone"
-        value={settings.contactPhone}
-        onChange={handleChange}
-        placeholder="Contact Phone"
-        className="block w-full rounded-md border-gray-300 shadow-sm px-2 py-2"
-        required
-      />
+        <input
+          type="tel"
+          name="contactPhone"
+          value={settings.contactPhone}
+          onChange={handleChange}
+          placeholder="Contact Phone"
+          className="block w-full rounded-md border-gray-300 shadow-sm px-2 py-2"
+          required
+        />
 
-      <input
-        type="url"
-        name="facebook"
-        value={settings.socialLinks.facebook}
-        onChange={handleSocialLinkChange}
-        placeholder="Facebook Link"
-        className="block w-full rounded-md border-gray-300 shadow-sm px-2 py-2"
-      />
+        <input
+          type="url"
+          name="facebook"
+          value={settings.socialLinks.facebook}
+          onChange={handleSocialLinkChange}
+          placeholder="Facebook Link"
+          className="block w-full rounded-md border-gray-300 shadow-sm px-2 py-2"
+        />
 
-      <input
-        type="url"
-        name="instagram"
-        value={settings.socialLinks.instagram}
-        onChange={handleSocialLinkChange}
-        placeholder="Instagram Link"
-        className="block w-full rounded-md border-gray-300 shadow-sm px-2 py-2"
-      />
+        <input
+          type="url"
+          name="instagram"
+          value={settings.socialLinks.instagram}
+          onChange={handleSocialLinkChange}
+          placeholder="Instagram Link"
+          className="block w-full rounded-md border-gray-300 shadow-sm px-2 py-2"
+        />
       </div>
 
-      <button type="submit" className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-        Save Settings
+      <button
+        type="submit"
+        className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        disabled={isUploading}
+      >
+        {isUploading ? "Uploading..." : "Save Settings"}
       </button>
     </form>
   )

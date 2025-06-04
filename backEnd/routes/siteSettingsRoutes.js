@@ -3,20 +3,18 @@ const router = express.Router()
 const SiteSettings = require("../models/SiteSettings")
 const adminAuth = require("../middleware/adminAuth")
 const multer = require("multer")
-const path = require("path")
-const fs = require("fs")
+const { CloudinaryStorage } = require("multer-storage-cloudinary")
+const { cloudinary } = require("../config/cloudinary")
 
-const uploadsDir = path.join(__dirname, "..", "uploads")
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true })
-}
-
-const upload = multer({
-  storage: multer.diskStorage({
-    destination: (req, file, cb) => cb(null, uploadsDir),
-    filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname)),
-  }),
+// Define Cloudinary storage directly in this file to avoid conflicts
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    allowed_formats: ["jpg", "jpeg", "png", "webp"],
+  },
 })
+
+const upload = multer({ storage })
 
 router.get("/", async (req, res) => {
   try {
@@ -51,6 +49,10 @@ router.put(
   ]),
   async (req, res) => {
     try {
+      console.log("=== UPLOAD DEBUG ===")
+      console.log("Files received:", req.files)
+      console.log("Body received:", req.body)
+
       const settings = (await SiteSettings.findOne()) || new SiteSettings()
 
       Object.assign(settings, {
@@ -64,12 +66,24 @@ router.put(
         socialLinks: JSON.parse(req.body.socialLinks),
       })
 
-      if (req.files?.heroImageDesktop) settings.heroImageDesktop = `/uploads/${req.files.heroImageDesktop[0].filename}`
-      if (req.files?.heroImageMobile) settings.heroImageMobile = `/uploads/${req.files.heroImageMobile[0].filename}`
+      if (req.files?.heroImageDesktop) {
+        console.log("Desktop image file object:", req.files.heroImageDesktop[0])
+        console.log("Desktop image path:", req.files.heroImageDesktop[0].path)
+        settings.heroImageDesktop = req.files.heroImageDesktop[0].path
+      }
+      if (req.files?.heroImageMobile) {
+        console.log("Mobile image file object:", req.files.heroImageMobile[0])
+        console.log("Mobile image path:", req.files.heroImageMobile[0].path)
+        settings.heroImageMobile = req.files.heroImageMobile[0].path
+      }
 
+      console.log("Settings before save:", settings)
       await settings.save()
+      console.log("=== END DEBUG ===")
+
       res.json(settings)
     } catch (error) {
+      console.error("Error updating settings:", error)
       res.status(400).json({ message: error.message })
     }
   },
