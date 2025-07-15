@@ -8,6 +8,7 @@ export default function Header({ siteSettings }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [cartCount, setCartCount] = useState(0)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -15,21 +16,25 @@ export default function Header({ siteSettings }) {
     const checkLoginStatus = () => {
       const token = localStorage.getItem("token")
       setIsLoggedIn(!!token)
-      if (token) {
-        const cart = JSON.parse(localStorage.getItem("cart")) || []
-        setCartCount(cart.length)
-      } else {
-        setCartCount(0)
-      }
+      updateCartCount()
+    }
+
+    const updateCartCount = () => {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]")
+      const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0)
+      setCartCount(totalItems)
     }
 
     checkLoginStatus()
 
-    // Listen for storage changes (when login happens in another tab)
-    window.addEventListener("storage", checkLoginStatus)
+    window.addEventListener("storage", updateCartCount)
+    window.addEventListener("cartUpdated", updateCartCount)
 
-    return () => window.removeEventListener("storage", checkLoginStatus)
-  }, [location]) // Re-check when route changes
+    return () => {
+      window.removeEventListener("storage", updateCartCount)
+      window.removeEventListener("cartUpdated", updateCartCount)
+    }
+  }, [location])
 
   const handleLogout = () => {
     localStorage.removeItem("token")
@@ -40,6 +45,15 @@ export default function Header({ siteSettings }) {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+  }
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
+      setSearchQuery("")
+      setIsMenuOpen(false)
+    }
   }
 
   return (
@@ -60,23 +74,30 @@ export default function Header({ siteSettings }) {
                   {category}
                 </Link>
               ))}
-            <div className="relative">
+            <form onSubmit={handleSearch} className="relative">
               <input
                 type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search..."
                 className="bg-gray-800 text-white px-3 py-1 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-600"
               />
-              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-            </div>
+              <button type="submit">
+                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              </button>
+            </form>
             {isLoggedIn ? (
               <>
-            <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
-             <span className="bg-gray-200 rounded-full p-1.5 flex items-center justify-center mr-1">
-             <ShoppingCart size={20} className="text-black" />
-             </span>
-             </Link>
-
-
+                <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center relative">
+                  <span className="bg-gray-200 rounded-full p-1.5 flex items-center justify-center mr-1 relative">
+                    <ShoppingCart size={20} className="text-black" />
+                    {cartCount > 0 && (
+                      <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
+                        {cartCount > 99 ? "99+" : cartCount}
+                      </span>
+                    )}
+                  </span>
+                </Link>
                 <button onClick={handleLogout} className="hover:text-gray-300 transition-colors flex items-center">
                   <LogOut size={20} className="mr-1" />
                   <span>Logout</span>
@@ -88,17 +109,20 @@ export default function Header({ siteSettings }) {
                   <LogIn size={20} className="mr-1" />
                   <span>Login</span>
                 </Link>
-
                 <Link to="/register" className="hover:text-gray-300 transition-colors flex items-center">
                   <User size={20} className="mr-1" />
                   <span>Register</span>
                 </Link>
-                  <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
-             <span className="bg-gray-200 rounded-full p-1.5 flex items-center justify-center mr-1">
-             <ShoppingCart size={20} className="text-black" />
-             </span>
-             </Link>
-
+                <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center relative">
+                  <span className="bg-gray-200 rounded-full p-1.5 flex items-center justify-center mr-1 relative">
+                    <ShoppingCart size={20} className="text-black" />
+                    {cartCount > 0 && (
+                      <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
+                        {cartCount > 99 ? "99+" : cartCount}
+                      </span>
+                    )}
+                  </span>
+                </Link>
               </>
             )}
           </div>
@@ -107,6 +131,8 @@ export default function Header({ siteSettings }) {
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-gray-900 py-4">
           <div className="container mx-auto px-4">
@@ -117,23 +143,28 @@ export default function Header({ siteSettings }) {
                     key={index}
                     to={`/category/${category.toLowerCase()}`}
                     className="hover:text-gray-300 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     {category}
                   </Link>
                 ))}
-              <div className="relative">
+              <form onSubmit={handleSearch} className="relative">
                 <input
                   type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search..."
                   className="w-full bg-gray-800 text-white px-3 py-1 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-600"
                 />
-                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-              </div>
+                <button type="submit">
+                  <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                </button>
+              </form>
               {isLoggedIn ? (
                 <>
                   <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
                     <ShoppingCart size={20} className="mr-2" />
-                    <span>Cart </span>
+                    <span>Cart</span>
                   </Link>
                   <button onClick={handleLogout} className="hover:text-gray-300 transition-colors flex items-center">
                     <LogOut size={20} className="mr-2" />
@@ -150,9 +181,9 @@ export default function Header({ siteSettings }) {
                     <User size={20} className="mr-2" />
                     <span>Register</span>
                   </Link>
-                   <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
+                  <Link to="/cart" className="hover:text-gray-300 transition-colors flex items-center">
                     <ShoppingCart size={20} className="mr-2" />
-                    <span>Cart </span>
+                    <span>Cart</span>
                   </Link>
                 </>
               )}

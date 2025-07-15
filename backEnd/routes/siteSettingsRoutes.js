@@ -6,7 +6,6 @@ const multer = require("multer")
 const { CloudinaryStorage } = require("multer-storage-cloudinary")
 const { cloudinary } = require("../config/cloudinary")
 
-// Define Cloudinary storage directly in this file to avoid conflicts
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
@@ -31,6 +30,14 @@ router.get("/", async (req, res) => {
         contactEmail: "contact@vintageshop.com",
         contactPhone: "123-456-7890",
         socialLinks: { facebook: "https://facebook.com", instagram: "https://instagram.com" },
+        emailNotifications: {
+          enabled: false,
+          adminEmail: "",
+          smtpHost: "",
+          smtpPort: 587,
+          smtpUser: "",
+          smtpPassword: "",
+        },
       })
       await settings.save()
     }
@@ -49,37 +56,45 @@ router.put(
   ]),
   async (req, res) => {
     try {
-      console.log("=== UPLOAD DEBUG ===")
-      console.log("Files received:", req.files)
+      console.log("=== SITE SETTINGS UPDATE ===")
       console.log("Body received:", req.body)
 
       const settings = (await SiteSettings.findOne()) || new SiteSettings()
 
-      Object.assign(settings, {
-        siteName: req.body.siteName,
-        heroTitle: req.body.heroTitle,
-        heroSubtitle: req.body.heroSubtitle,
-        footerText: req.body.footerText,
-        contactEmail: req.body.contactEmail,
-        contactPhone: req.body.contactPhone,
-        categories: JSON.parse(req.body.categories),
-        socialLinks: JSON.parse(req.body.socialLinks),
-      })
+      // Update basic fields
+      settings.siteName = req.body.siteName
+      settings.heroTitle = req.body.heroTitle
+      settings.heroSubtitle = req.body.heroSubtitle
+      settings.footerText = req.body.footerText
+      settings.contactEmail = req.body.contactEmail
+      settings.contactPhone = req.body.contactPhone
+      settings.categories = JSON.parse(req.body.categories || "[]")
+      settings.socialLinks = JSON.parse(req.body.socialLinks || "{}")
 
+      // Handle email notifications properly
+      if (req.body.emailNotifications) {
+        const emailNotifications = JSON.parse(req.body.emailNotifications)
+        settings.emailNotifications = {
+          enabled: emailNotifications.enabled || false,
+          adminEmail: emailNotifications.adminEmail || "",
+          smtpHost: emailNotifications.smtpHost || "",
+          smtpPort: emailNotifications.smtpPort || 587,
+          smtpUser: emailNotifications.smtpUser || "",
+          smtpPassword: emailNotifications.smtpPassword || "",
+        }
+      }
+
+      // Handle image uploads
       if (req.files?.heroImageDesktop) {
-        console.log("Desktop image file object:", req.files.heroImageDesktop[0])
-        console.log("Desktop image path:", req.files.heroImageDesktop[0].path)
         settings.heroImageDesktop = req.files.heroImageDesktop[0].path
       }
       if (req.files?.heroImageMobile) {
-        console.log("Mobile image file object:", req.files.heroImageMobile[0])
-        console.log("Mobile image path:", req.files.heroImageMobile[0].path)
         settings.heroImageMobile = req.files.heroImageMobile[0].path
       }
 
       console.log("Settings before save:", settings)
       await settings.save()
-      console.log("=== END DEBUG ===")
+      console.log("Settings saved successfully")
 
       res.json(settings)
     } catch (error) {

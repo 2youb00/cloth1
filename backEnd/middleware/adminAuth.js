@@ -1,19 +1,27 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const jwt = require("jsonwebtoken")
+const User = require("../models/User")
 
-module.exports = async (req, res, next) => {
+const adminAuth = async (req, res, next) => {
   try {
-    const token = req.header('Authorization').replace('Bearer ', '');
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findOne({ _id: decoded.userId, isAdmin: true });
+    const token = req.header("Authorization")?.replace("Bearer ", "")
 
-    if (!user) {
-      throw new Error();
+    if (!token) {
+      return res.status(401).json({ message: "No token, authorization denied" })
     }
 
-    req.user = user;
-    next();
+    const decoded = jwt.verify(token, process.env.JWT_SECRET)
+    const user = await User.findById(decoded.userId)
+
+    if (!user || !user.isAdmin) {
+      return res.status(401).json({ message: "Not authorized as admin" })
+    }
+
+    req.user = user
+    next()
   } catch (error) {
-    res.status(401).json({ message: 'Admin authentication failed' });
+    console.error("Admin auth error:", error)
+    res.status(401).json({ message: "Token is not valid" })
   }
-};
+}
+
+module.exports = adminAuth

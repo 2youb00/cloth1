@@ -1,0 +1,892 @@
+[
+  {
+    "wilaya_code": "01",
+    "wilaya_name": "Adrar",
+    "dairas": [
+      "Adrar",
+      "Aoulef",
+      "Fenoughil",
+      "Reggane",
+      "Tsabit",
+      "Zaouiet Kounta",
+      "Aougrout",
+      "Bordj Badji Mokhtar",
+      "Charouine",
+      "Timimoun",
+      "Tinerkouk"
+    ]
+  },
+  {
+    "wilaya_code": "02",
+    "wilaya_name": "Chlef",
+    "dairas": [
+      "Chlef",
+      "Abou El Hassan",
+      "El Karimia",
+      "Beni Haoua",
+      "Ouled Fares",
+      "El Marsa",
+      "Taougrite",
+      "Oued Fodda",
+      "Ténès",
+      "Ouled Ben Abdelkader",
+      "Aïn Merane",
+      "Boukadir",
+      "Zeboudja"
+    ]
+  },
+  {
+    "wilaya_code": "03",
+    "wilaya_name": "Laghouat",
+    "dairas": [
+      "Aflou",
+      "Aïn Madhi",
+      "Brida",
+      "El Ghicha",
+      "Gueltet Sidi Saâd",
+      "Hassi R'Mel",
+      "Ksar El Hirane",
+      "Laghouat",
+      "Oued Morra",
+      "Sidi Makhlouf"
+    ]
+  },
+  {
+    "wilaya_code": "04",
+    "wilaya_name": "Oum El Bouaghi",
+    "dairas": [
+      "Aïn Babouche",
+      "Aïn Beïda",
+      "Aïn Fakroun",
+      "Aïn Kercha",
+      "Aïn M'lila",
+      "Dhalaa",
+      "Fkirina",
+      "Ksar Sbahi",
+      "Meskiana",
+      "Oum El Bouaghi",
+      "Sigus",
+      "Souk Naamane"
+    ]
+  },
+  {
+    "wilaya_code": "05",
+    "wilaya_name": "Batna",
+    "dairas": [
+      "Batna",
+      "Arris",
+      "Barika",
+      "Bouzina",
+      "Corso",
+      "Djerma",
+      "El Madher",
+      "Fesdis",
+      "Ghassira",
+      "Guigba",
+      "Hafsa",
+      "Lemroudja",
+      "N'gaous",
+      "Ouyoun El Assafir",
+      "Ras El Aioun",
+      "Seggana",
+      "Tazoult",
+      "Theniet El Abed",
+      "Timgad"
+    ]
+  },
+  
+  {
+    "wilaya_code": "06",
+    "wilaya_name": "Béjaïa",
+    "dairas": [
+      "Adekar",
+      "Akbou",
+      "Amizour",
+      "Aokas",
+      "Barbacha",
+      "Béjaïa",
+      "Beni Maouche",
+      "Chemini",
+      "Darguina",
+      "El Kseur",
+      "Ighil Ali",
+      "Kherrata",
+      "Ouzellaguen",
+      "Seddouk",
+      "Sidi-Aïch",
+      "Souk El-Ténine",
+      "Tazmalt",
+      "Tichy",
+      "Timezrit"
+    ]
+  },
+  {
+    "wilaya_code": "07",
+    "wilaya_name": "Biskra",
+    "dairas": [
+      "Biskra",
+      "Djemorah",
+      "El Kantara",
+      "M’Chouneche",
+      "Sidi Okba",
+      "Zeribet El Oued",
+      "Ourlal",
+      "Tolga",
+      "Foughala",
+      "El Outaya"
+    ]
+  },
+  {
+    "wilaya_code": "08",
+    "wilaya_name": "Béchar",
+    "dairas": [
+      "Béchar",
+      "Abadla",
+      "Béni Abbès",
+      "El Ouata",
+      "Igli",
+      "Tabelbala",
+      "Taghit",
+      "Kerzaz",
+      "Lahmar",
+      "Ouled Khodeïr",
+      "Kenadsa",
+      "Mechraa Houari Boumedienne"
+    ]
+  },
+  {
+    "wilaya_code": "09",
+    "wilaya_name": "Blida",
+    "dairas": [
+      "Blida",
+      "Boufarik",
+      "Bougara",
+      "Bouinan",
+      "El Affroun",
+      "Larbaa",
+      "Meftah",
+      "Mouzaïa",
+      "Oued Alleug",
+      "Ouled Yaïch"
+    ]
+  },
+  {
+    "wilaya_code": "10",
+    "wilaya_name": "Bouira",
+    "dairas": [
+      "Bouira",
+      "Haïzer",
+      "Bechloul",
+      "M'Chedallah",
+      "Kadiria",
+      "Lakhdaria",
+      "Bir Ghbalou",
+      "Aïn Bessem",
+      "Souk El Khemis",
+      "El Hachimia",
+      "Sour El-Ghozlane",
+      "Bordj Okhriss"
+    ]
+  },
+  {
+    "wilaya_code": "11",
+    "wilaya_name": "Tamanrasset",
+    "dairas": [
+      "Abalessa",
+      "Tamanrasset",
+      "Tazrouk"
+    ]
+  },
+  {
+    "wilaya_code": "12",
+    "wilaya_name": "Tébessa",
+    "dairas": [
+      "Tébessa",
+      "El Kouif",
+      "Morsott",
+      "El Ma Labiodh",
+      "El Aouinet",
+      "Ouenza",
+      "Bir Mokkadem",
+      "Bir el-Ater",
+      "El Ogla",
+      "Oum Ali",
+      "Negrine",
+      "Cheria"
+    ]
+  },
+  {
+    "wilaya_code": "13",
+    "wilaya_name": "Tlemcen",
+    "dairas": [
+      "Aïn Tallout",
+      "Bab El Assa",
+      "Beni Boussaid",
+      "Beni Snous",
+      "Bensekrane",
+      "Chetouane",
+      "El Aricha",
+      "Fellaoucene",
+      "Ghazaouet",
+      "Hennaya",
+      "Honaïne",
+      "Maghnia",
+      "Mansourah",
+      "Marsa Ben M'Hidi",
+      "Nedroma",
+      "Ouled Mimoun",
+      "Remchi",
+      "Sabra",
+      "Sebdou",
+      "Sidi Djillali",
+      "Tlemcen"
+    ]
+  },
+  {
+    "wilaya_code": "14",
+    "wilaya_name": "Tiaret",
+    "dairas": [
+      "Aïn Deheb",
+      "Aïn Kermès",
+      "Dahmouni",
+      "Oued Lilli",
+      "Ksar Chellala",
+      "Mahdia",
+      "Medroussa",
+      "Mechraa Safa",
+      "Rahouia",
+      "Sougueur"
+    ]
+  },
+  {
+    "wilaya_code": "15",
+    "wilaya_name": "Tizi Ouzou",
+    "dairas": [
+      "Aïn El Hammam",
+      "Azazga",
+      "Azeffoun",
+      "Beni Douala",
+      "Beni Yenni",
+      "Boghni",
+      "Bouzeguene",
+      "Draa Ben Khedda",
+      "Draâ El Mizan",
+      "Iferhounène",
+      "Larbaa Nath Irathen",
+      "Mâatkas",
+      "Makouda",
+      "Mekla",
+      "Ouacif",
+      "Ouaguenoun",
+      "Tadmaït",
+      "Tigzirt",
+      "Timizart",
+      "Tirmitine",
+      "Tizi Ouzou",
+      "Tizi Rached",
+      "Yakouren",
+      "Zekri"
+    ]
+  },
+  {
+    "wilaya_code": "16",
+    "wilaya_name": "Alger",
+    "dairas": [
+      "Bab El Oued",
+      "Baraki",
+      "Bir Mourad Raïs",
+      "Birtouta",
+      "Bouzareah",
+      "Chéraga",
+      "Dar El Beïda",
+      "Draria",
+      "El Harrach",
+      "Hussein Dey",
+      "Rouïba",
+      "Sidi M'Hamed",
+      "Zéralda"
+    ]
+  },
+  {
+    "wilaya_code": "17",
+    "wilaya_name": "Djelfa",
+    "dairas": [
+      "Djelfa",
+      "Aïn El Ibel",
+      "Aïn Oussara",
+      "Birine",
+      "Charef",
+      "Dar Chioukh",
+      "El Idrissia",
+      "Faidh El Botma",
+      "Had-Sahary",
+      "Hassi Bahbah",
+      "Messaad",
+      "Sidi Ladjel"
+    ]
+  },
+  {
+    "wilaya_code": "18",
+    "wilaya_name": "Jijel",
+    "dairas": [
+      "Chekfa",
+      "Djimla",
+      "El Ancer",
+      "El Aouana",
+      "El Milia",
+      "Jijel",
+      "Settara",
+      "Sidi Maarouf",
+      "Taher",
+      "Texenna",
+      "Ziama Mansouriah"
+    ]
+  },
+  {
+    "wilaya_code": "19",
+    "wilaya_name": "Sétif",
+    "dairas": [
+      "Aïn Arnat",
+      "Aïn Azel",
+      "Aïn El Kebira",
+      "Aïn Oulmene",
+      "Amoucha",
+      "Babor",
+      "Beni Aziz",
+      "Beni Ourtilene",
+      "Bir El Arch",
+      "Bouandas",
+      "Bougaa",
+      "Djemila",
+      "El Eulma",
+      "Guenzet",
+      "Guidjel",
+      "Hammam Guergour",
+      "Hammam Sokhna",
+      "Maoklane",
+      "Salah Bey",
+      "Sétif"
+    ]
+  },
+  {
+    "wilaya_code": "20",
+    "wilaya_name": "Saïda",
+    "dairas": [
+      "Saïda",
+      "Aïn El Hadjar",
+      "El Hassasna",
+      "Ouled Brahim",
+      "Sidi Boubekeur"
+    ]
+  },
+ {
+    "wilaya_code": "21",
+    "wilaya_name": "Skikda",
+    "dairas": [
+      "Aïn Kechra",
+      "Azzaba",
+      "Ben Azzouz",
+      "Collo",
+      "El Hadaiek",
+      "El Harrouch",
+      "Ouled Attia",
+      "Oum Toub",
+      "Ramdane Djamel",
+      "Sidi Mezghiche",
+      "Skikda",
+      "Tamalous",
+      "Zitouna"
+    ]
+  },
+  {
+    "wilaya_code": "22",
+    "wilaya_name": "Sidi Bel Abbès",
+    "dairas": [
+      "Sidi Bel Abbès",
+      "Aïn El Berd",
+      "Ben Badis",
+      "Marhoum",
+      "Mérine",
+      "Mostefa Ben Brahim",
+      "Moulay Slissen",
+      "Ras El Ma",
+      "Sfisef",
+      "Sidi Ali Benyoub",
+      "Sidi Ali Boussidi",
+      "Sidi Lahcene",
+      "Telagh",
+      "Tenira",
+      "Tessala"
+    ]
+  },
+  {
+    "wilaya_code": "23",
+    "wilaya_name": "Annaba",
+    "dairas": [
+      "Annaba",
+      "El Hadjar",
+      "Berrahal",
+      "Chetaïbi",
+      "El Bouni",
+      "Aïn Berda"
+    ]
+  },
+  {
+    "wilaya_code": "24",
+    "wilaya_name": "Guelma",
+    "dairas": [
+      "Guelma",
+      "Aïn Makhlouf",
+      "Belkheir",
+      "Bouchegouf",
+      "Guelaât Bou Sbaa",
+      "Hammam Debagh",
+      "Hammam N’bails",
+      "Héliopolis",
+      "Khezaras",
+      "Oued Zenati"
+    ]
+  },
+  {
+    "wilaya_code": "25",
+    "wilaya_name": "Constantine",
+    "dairas": [
+      "Constantine",
+      "Hamma Bouziane",
+      "Aïn Smara",
+      "Didouche Mourad",
+      "El Khroub",
+      "Zighoud Youcef"
+    ]
+  },
+  {
+    "wilaya_code": "26",
+    "wilaya_name": "Médéa",
+    "dairas": [
+      "Aïn Boucif",
+      "Aziz",
+      "Beni Slimane",
+      "Berrouaghia",
+      "Chahbounia",
+      "Chellalet El Adhaoura",
+      "El Azizia",
+      "El Guelb El Kebir",
+      "El Omaria",
+      "Ksar Boukhari",
+      "Médéa",
+      "Ouamri",
+      "Ouled Antar",
+      "Ouzera",
+      "Seghouane",
+      "Sidi Naamane",
+      "Si Mahdjoub",
+      "Souagui",
+      "Tablat"
+    ]
+  },
+  {
+    "wilaya_code": "27",
+    "wilaya_name": "Mostaganem",
+    "dairas": [
+      "Mostaganem",
+      "Hassi Maameche",
+      "Aïn Tedles",
+      "Bouguirat",
+      "Sidi Ali",
+      "Achaacha",
+      "Aïn Nouïssy",
+      "Mesra",
+      "Sidi Lakhdar",
+      "Kheireddine"
+    ]
+  },
+  {
+    "wilaya_code": "28",
+    "wilaya_name": "M'Sila",
+    "dairas": [
+      "Aïn El Hadjel",
+      "Aïn El Melh",
+      "Aïn Errich",
+      "Aïn Fares",
+      "Aïn Khadra",
+      "Ben Srour",
+      "Bou Saâda",
+      "Chellal",
+      "Djebel Messaad",
+      "Hammam Dhalaa",
+      "Khoubana",
+      "Magra",
+      "M'Sila",
+      "M'Tarfa",
+      "Ouled Derradj"
+    ]
+  },
+  {
+    "wilaya_code": "29",
+    "wilaya_name": "Mascara",
+    "dairas": [
+      "Mascara"
+      
+    ]
+  },
+  {
+    "wilaya_code": "30",
+    "wilaya_name": "Ouargla",
+    "dairas": [
+      "El Borma",
+      "Hassi Messaoud",
+      "N'Goussa",
+      "Ouargla",
+      "Sidi Khouiled"
+    ]
+  },
+  {
+    "wilaya_code": "31",
+    "wilaya_name": "Oran",
+    "dairas": [
+      "Oran",
+      "Aïn El Turk",
+      "Arzew",
+      "Bethioua",
+      "Bir El Djir",
+      "Boutlélis",
+      "Es Sénia",
+      "Gdyel",
+      "Oued Tlelat"
+    ]
+  },
+  {
+    "wilaya_code": "32",
+    "wilaya_name": "El Bayadh",
+    "dairas": [
+      "El Bayadh",
+      "Rogassa",
+      "Brezina",
+      "El Abiodh Sidi Cheikh",
+      "Bougtoub",
+      "Chellala",
+      "Boussemghoun",
+      "Boualem"
+    ]
+  },
+  {
+    "wilaya_code": "33",
+    "wilaya_name": "Illizi",
+    "dairas": [
+      "Illizi",
+      "Djanet",
+      "Bordj El Houasse",
+      "In Amenas"
+    ]
+  },
+  {
+    "wilaya_code": "34",
+    "wilaya_name": "Bordj Bou Arréridj",
+    "dairas": [
+      "Bordj Bou Arreridj",
+      "Aïn Taghrout",
+      "Ras El Oued",
+      "Bordj Ghedir",
+      "Bir Kasdali",
+      "El Hamadia",
+      "Mansoura",
+      "Medjana",
+      "Bordj Zemoura",
+      "Djaafra"
+    ]
+  },
+  {
+    "wilaya_code": "35",
+    "wilaya_name": "Boumerdès",
+    "dairas": [
+      "Baghlia",
+      "Boudouaou",
+      "Bordj Ménaïel",
+      "Boumerdès",
+      "Dellys",
+      "Khemis El Kechna",
+      "Isser",
+      "Naciria",
+      "Thénia"
+    ]
+  },
+  {
+    "wilaya_code": "36",
+    "wilaya_name": "El Tarf",
+    "dairas": [
+      "El Tarf",
+      "El Kala",
+      "Ben Mehidi",
+      "Besbes",
+      "Dréan",
+      "Bouhadjar",
+      "Bouteldja"
+    ]
+  },
+  {
+    "wilaya_code": "37",
+    "wilaya_name": "Tindouf",
+    "dairas": [
+      "Tindouf"
+    ]
+  },
+  {
+    "wilaya_code": "38",
+    "wilaya_name": "Tissemsilt",
+    "dairas": [
+      "Ammari",
+      "Bordj Bou Naama",
+      "Bordj El Emir Abdelkader",
+      "Khemisti",
+      "Lardjem",
+      "Lazharia",
+      "Theniet El Had",
+      "Tissemsilt"
+    ]
+  },
+  {
+    "wilaya_code": "39",
+    "wilaya_name": "El Oued",
+    "dairas": [
+      "Bayadha",
+      "Debila",
+      "El Oued",
+      "Guemar",
+      "Hassi Khalifa",
+      "Magrane",
+      "Mih Ouansa",
+      "Reguiba",
+      "Robbah",
+      "Taleb Larbi"
+    ]
+  },
+  {
+    "wilaya_code": "40",
+    "wilaya_name": "Khenchela",
+    "dairas": [
+      "Khenchela",
+      "Aïn Touila",
+      "Babar",
+      "Bouhmama",
+      "Chechar",
+      "El Hamma",
+      "Kaïs",
+      "M'Sar",
+      "Ouled Rechache",
+      "Yaïla",
+      "El Mahmal"
+    ]
+  },
+  {
+    "wilaya_code": "41",
+    "wilaya_name": "Souk Ahras",
+    "dairas": [
+      "Bir Bou Haouch",
+      "Heddada",
+      "M’douarouch",
+      "Mechroha",
+      "Merahna",
+      "Ouled Driss",
+      "Oum El Adhaim",
+      "Sedrata",
+      "Souk Ahras",
+      "Taoura"
+    ]
+  },
+  {
+    "wilaya_code": "42",
+    "wilaya_name": "Tipaza",
+    "dairas": [
+      "Ahmar El Ain",
+      "Bou Ismail",
+      "Cherchell",
+      "Damous",
+      "Fouka",
+      "Gouraya",
+      "Hadjout",
+      "Koléa",
+      "Sidi Amar",
+      "Tipaza"
+    ]
+  },
+  {
+    "wilaya_code": "43",
+    "wilaya_name": "Mila",
+    "dairas": [
+      "Mila",
+      "Chelghoum Laid",
+      "Ferdjioua",
+      "Grarem Gouga",
+      "Oued Endja",
+      "Rouached",
+      "Aïn Beida Harriche",
+      "Teleghma",
+      "Tadjenanet",
+      "Sidi Merouane",
+      "Terrai Bainen",
+      "Tassadane Haddada"
+    ]
+  },
+  {
+    "wilaya_code": "44",
+    "wilaya_name": "Aïn Defla",
+    "dairas": [
+      "Aïn Defla",
+      "Aïn Lechiekh",
+      "El Attaf",
+      "El Abadia",
+      "Djendel",
+      "Miliana",
+      "Djelida",
+      "Hammam Righa",
+      "Khemis Miliana",
+      "Mekhatria",
+      "Oued Chorfa",
+      "Rouina",
+      "Sidi Lakhdar",
+      "Zeddine"
+    ]
+  },
+  {
+    "wilaya_code": "45",
+    "wilaya_name": "Naâma",
+    "dairas": [
+      "Naama",
+      "Asla",
+      "Djéniane Bourezg",
+      "Méchéria",
+      "Moulay Slissen",
+      "Seybouse",
+      "Tiout"
+    ]
+  },
+  {
+    "wilaya_code": "46",
+    "wilaya_name": "Aïn Témouchent",
+    "dairas": [
+      "Aïn Témouchent",
+      "Aïn El Arbaa",
+      "Aïn Kihal",
+      "Beni Saf",
+      "El Amria",
+      "El Malah",
+      "Hammam Bou Hadjar",
+      "Oulhaça El Gheraba"
+    ]
+  },
+  {
+    "wilaya_code": "47",
+    "wilaya_name": "Ghardaïa",
+    "dairas": [
+      "Ghardaïa",
+      "Metlili",
+      "Berriane",
+      "Dhayet Bendhahoua",
+      "Mansoura",
+      "Zelfana",
+      "Guerrara",
+      "Bounoura"
+    ]
+  },
+  {
+    "wilaya_code": "48",
+    "wilaya_name": "Relizane",
+    "dairas": [
+      "Relizane",
+      "Aïn Tarek",
+      "Ammi Moussa",
+      "Djidjéria",
+      "Oued Rhiou",
+      "Mazouna",
+      "Belaïd",
+      "Oued Essalem",
+      "El Hassi",
+      "Yellel",
+      "Zemmoura",
+      "El Matmar",
+      "Hammam Righa"
+    ]
+  },
+  {
+    "wilaya_code": "49",
+    "wilaya_name": "Timimoun",
+    "dairas": [
+      "Timimoun",
+      "Aougrout",
+      "Charouine",
+      "Tinerkouk"
+    ]
+  },
+  {
+    "wilaya_code": "50",
+    "wilaya_name": "Bordj Badji Mokhtar",
+    "dairas": [
+      "Bordj Badji Mokhtar"
+    ]
+  },
+  {
+    "wilaya_code": "51",
+    "wilaya_name": "Ouled Djellal",
+    "dairas": [
+      "Ouled Djellal",
+      "Sidi Khaled"
+    ]
+  },
+  {
+    "wilaya_code": "52",
+    "wilaya_name": "Béni Abbès",
+    "dairas": [
+      "Béni Abbès"
+    ]
+  },
+  {
+    "wilaya_code": "53",
+    "wilaya_name": "In Salah",
+    "dairas": [
+      "In Salah",
+      "In Ghar"
+    ]
+  },
+  {
+    "wilaya_code": "54",
+    "wilaya_name": "In Guezzam",
+    "dairas": [
+      "In Guezzam",
+      "Tin Zaouatine"
+    ]
+  },
+  {
+    "wilaya_code": "55",
+    "wilaya_name": "Touggourt",
+    "dairas": [
+      "Touggourt",
+      "El Hadjira",
+      "Megarine",
+      "Taibet",
+      "Tamacine"
+    ]
+  },
+  {
+    "wilaya_code": "56",
+    "wilaya_name": "Djanet",
+    "dairas": [
+      "Djanet"
+    ]
+  },
+  {
+    "wilaya_code": "57",
+    "wilaya_name": "El M'Ghair",
+    "dairas": [
+      "El M'Ghair",
+      "Djamaa"
+    ]
+  },
+  {
+    "wilaya_code": "58",
+    "wilaya_name": "El Menia",
+    "dairas": [
+      "El Meniaa",
+      "Mansoura"
+    ]
+  }
+]

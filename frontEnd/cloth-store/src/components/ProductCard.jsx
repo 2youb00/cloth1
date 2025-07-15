@@ -18,22 +18,39 @@ export default function ProductCard({ product }) {
   }
 
   const mainImage = product.images && product.images.length > 0 ? getImageUrl(product.images[0]) : "/placeholder.jpg"
-
   const hoverImage = product.images && product.images.length > 1 ? getImageUrl(product.images[1]) : mainImage
+
+  // Fixed discount calculations using salePrice
+  const isOnSale = product.salePrice && product.salePrice < product.price
+  const finalPrice = isOnSale ? product.salePrice : product.price
+  const discountPercentage = isOnSale ? Math.round(((product.price - product.salePrice) / product.price) * 100) : 0
 
   return (
     <Link to={`/product/${product._id}`} className="group">
       <motion.div
-        className="bg-white rounded-lg shadow-md overflow-hidden relative"
+        className="bg-white rounded-2xl shadow-lg overflow-hidden relative hover:shadow-xl transition-shadow duration-300"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        {!product.inStock && (
-          <div className="absolute top-0 left-0 right-0 bg-red-500 text-white text-center py-1 z-10">Out of Stock</div>
+        {/* Discount Badge */}
+        {isOnSale && (
+          <div className="absolute top-3 left-3 z-20">
+            <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+              -{discountPercentage}%
+            </div>
+          </div>
         )}
-        <div className="relative w-full pb-[125%]">
+
+        {/* Out of Stock Badge */}
+        {!product.inStock && (
+          <div className="absolute top-3 right-3 z-20">
+            <div className="bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-medium">Out of Stock</div>
+          </div>
+        )}
+
+        <div className="relative w-full pb-[125%] overflow-hidden">
           <AnimatePresence initial={false}>
             <motion.img
               key={isHovered ? "hoverImage" : "mainImage"}
@@ -46,25 +63,45 @@ export default function ProductCard({ product }) {
               transition={{ duration: 0.3 }}
             />
           </AnimatePresence>
+
           {!product.inStock && (
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <span className="text-white text-lg font-semibold">Out of Stock</span>
             </div>
           )}
         </div>
-        <div className="p-4">
-          <h3 className="text-sm font-semibold mb-2 truncate">{product.name}</h3>
-          <p className="text-gray-600">DZD {product.price.toFixed(2)}</p>
+
+        <div className="p-6">
+          <h3 className="text-lg font-bold mb-3 text-gray-900 line-clamp-2 leading-tight">{product.name}</h3>
+
+          {/* Price Section - Fixed calculations */}
+          <div className="mb-4">
+            {isOnSale ? (
+              <div className="flex flex-col space-y-1">
+                <span className="text-xl font-bold text-gray-900">DZD {finalPrice.toFixed(2)}</span>
+                <span className="text-sm text-red-500 line-through">DZD {product.price.toFixed(2)}</span>
+              </div>
+            ) : (
+              <span className="text-xl font-bold text-gray-900">DZD {finalPrice.toFixed(2)}</span>
+            )}
+          </div>
+
+          {/* Categories */}
           {product.categories && product.categories.length > 0 && (
-            <div className="mt-2 flex flex-wrap">
-              {product.categories.map((category, index) => (
+            <div className="flex flex-wrap gap-2">
+              {product.categories.slice(0, 2).map((category, index) => (
                 <span
                   key={index}
-                  className="inline-block bg-gray-200 rounded-full px-2 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2"
+                  className="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-semibold"
                 >
                   {category}
                 </span>
               ))}
+              {product.categories.length > 2 && (
+                <span className="inline-block bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-semibold">
+                  +{product.categories.length - 2} more
+                </span>
+              )}
             </div>
           )}
         </div>

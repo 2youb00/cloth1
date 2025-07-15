@@ -6,7 +6,6 @@ const multer = require("multer")
 const { CloudinaryStorage } = require("multer-storage-cloudinary")
 const { cloudinary } = require("../config/cloudinary")
 
-// Use Cloudinary storage for products
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
@@ -29,6 +28,10 @@ router.get("/", async (req, res) => {
     if (sort === "price_asc") sortOptions.price = 1
     if (sort === "price_desc") sortOptions.price = -1
     if (sort === "newest") sortOptions.createdAt = -1
+    if (sort === "sale") {
+      // Show products with sale prices first
+      query.salePrice = { $exists: true, $ne: null }
+    }
 
     const products = await Product.find(query)
       .sort(sortOptions)
@@ -62,21 +65,21 @@ router.get("/:id", async (req, res) => {
 // Create a new product (admin only)
 router.post("/", adminAuth, upload.array("images", 10), async (req, res) => {
   try {
-    console.log("=== PRODUCT UPLOAD DEBUG ===")
-    console.log("Files received:", req.files)
+    const { name, description, price, salePrice, categories, sizes, colors, inStock, featured } = req.body
 
-    const { name, description, price, categories, sizes, colors, inStock, featured } = req.body
+    const images = req.files.map((file) => file.path)
 
-    // Get Cloudinary URLs from uploaded files
-    const images = req.files.map((file) => {
-      console.log("Product image path:", file.path)
-      return file.path
-    })
+    // Validate salePrice
+    let validSalePrice = null
+    if (salePrice && Number.parseFloat(salePrice) > 0 && Number.parseFloat(salePrice) < Number.parseFloat(price)) {
+      validSalePrice = Number.parseFloat(salePrice)
+    }
 
     const product = new Product({
       name,
       description,
-      price,
+      price: Number.parseFloat(price),
+      salePrice: validSalePrice,
       categories: JSON.parse(categories),
       images,
       sizes: JSON.parse(sizes),
@@ -86,7 +89,6 @@ router.post("/", adminAuth, upload.array("images", 10), async (req, res) => {
     })
 
     const newProduct = await product.save()
-    console.log("=== END PRODUCT DEBUG ===")
     res.status(201).json(newProduct)
   } catch (error) {
     console.error("Error creating product:", error)
@@ -97,16 +99,24 @@ router.post("/", adminAuth, upload.array("images", 10), async (req, res) => {
 // Update a product (admin only)
 router.patch("/:id", adminAuth, upload.array("images", 10), async (req, res) => {
   try {
-    const { name, description, price, categories, sizes, colors, inStock, featured, existingImages } = req.body
+    const { name, description, price, salePrice, categories, sizes, colors, inStock, featured, existingImages } =
+      req.body
 
     const parsedExistingImages = existingImages ? JSON.parse(existingImages) : []
     const newImages = req.files.map((file) => file.path)
     const images = [...parsedExistingImages, ...newImages]
 
+    // Validate salePrice
+    let validSalePrice = null
+    if (salePrice && Number.parseFloat(salePrice) > 0 && Number.parseFloat(salePrice) < Number.parseFloat(price)) {
+      validSalePrice = Number.parseFloat(salePrice)
+    }
+
     const updateData = {
       name,
       description,
-      price,
+      price: Number.parseFloat(price),
+      salePrice: validSalePrice,
       categories: JSON.parse(categories),
       sizes: JSON.parse(sizes),
       colors: JSON.parse(colors),
