@@ -193,7 +193,7 @@ export default function SiteSettingsForm() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
                     activeTab === tab.id
-                      ? "border-indigo-500 text-indigo-600"
+                      ? "border-indigo-500 text-blue-600"
                       : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
                   }`}
                 >
@@ -362,7 +362,7 @@ export default function SiteSettingsForm() {
                   <button
                     type="button"
                     onClick={addCategory}
-                    className="flex items-center px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-indigo-500 hover:text-indigo-600 transition-colors"
+                    className="flex items-center px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-indigo-500 hover:text-blue-600 transition-colors"
                   >
                     <Plus className="w-5 h-5 mr-2" />
                     Add Category
@@ -447,7 +447,7 @@ export default function SiteSettingsForm() {
                   name="enabled"
                   checked={settings.emailNotifications?.enabled || false}
                   onChange={handleEmailNotificationChange}
-                  className="h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  className="h-5 w-5 text-blue-600 focus:ring-indigo-500 border-gray-300 rounded"
                 />
                 <label className="ml-3 text-sm font-medium text-gray-700">
                   Enable email notifications for new orders
@@ -531,7 +531,7 @@ export default function SiteSettingsForm() {
           <div className="pt-8 border-t border-gray-200">
             <button
               type="submit"
-              className="w-full bg-indigo-600 text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 disabled:bg-gray-400 transition-all flex items-center justify-center"
+              className="w-full bg-blue-600 text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 disabled:bg-gray-400 transition-all flex items-center justify-center"
               disabled={isUploading}
             >
               {isUploading ? (

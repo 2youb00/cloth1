@@ -148,7 +148,7 @@ export default function Checkout() {
           <p className="text-gray-600 mb-6">Add some items to your cart before checking out.</p>
           <button
             onClick={() => navigate("/")}
-            className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
           >
             Continue Shopping
           </button>
@@ -188,7 +188,7 @@ export default function Checkout() {
           {/* Order Summary */}
           <div className="bg-white rounded-2xl shadow-lg p-6 h-fit">
             <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-              <svg className="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -224,7 +224,7 @@ export default function Checkout() {
             <div className="border-t border-gray-200 mt-6 pt-6">
               <div className="flex justify-between items-center">
                 <span className="text-xl font-bold text-gray-900">Total</span>
-                <span className="text-2xl font-bold text-indigo-600">
+                <span className="text-2xl font-bold text-blue-600">
                   DZD {cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0).toFixed(2)}
                 </span>
               </div>
@@ -234,7 +234,7 @@ export default function Checkout() {
           {/* Checkout Form */}
           <div className="bg-white rounded-2xl shadow-lg p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-              <svg className="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -415,7 +415,7 @@ export default function Checkout() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-indigo-600 text-white px-6 py-4 rounded-xl font-semibold text-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all transform hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full bg-blue-600 text-white px-6 py-4 rounded-xl font-semibold text-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all transform hover:scale-[1.02] active:scale-[0.98]"
               >
                 {isSubmitting ? (
                   <div className="flex items-center justify-center">

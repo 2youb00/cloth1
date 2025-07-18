@@ -98,7 +98,7 @@ export default function AdminOrderDetails() {
           <p className="text-gray-600 mb-4">{error}</p>
           <button
             onClick={() => navigate("/admin/orders")}
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
           >
             Back to Orders
           </button>
@@ -114,7 +114,7 @@ export default function AdminOrderDetails() {
           <h2 className="text-xl font-bold text-gray-900 mb-2">Order not found</h2>
           <button
             onClick={() => navigate("/admin/orders")}
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
           >
             Back to Orders
           </button>
@@ -132,7 +132,7 @@ export default function AdminOrderDetails() {
             <div>
               <button
                 onClick={() => navigate("/admin/orders")}
-                className="flex items-center text-indigo-600 hover:text-indigo-700 mb-4"
+                className="flex items-center text-blue-600 hover:text-indigo-700 mb-4"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
@@ -167,7 +167,7 @@ export default function AdminOrderDetails() {
             {/* Products */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <svg className="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -204,7 +204,7 @@ export default function AdminOrderDetails() {
               <div className="border-t border-gray-200 mt-6 pt-6">
                 <div className="flex justify-between items-center">
                   <span className="text-xl font-bold text-gray-900">Total Amount</span>
-                  <span className="text-2xl font-bold text-indigo-600">DZD {order.totalAmount.toFixed(2)}</span>
+                  <span className="text-2xl font-bold text-blue-600">DZD {order.totalAmount.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -212,7 +212,7 @@ export default function AdminOrderDetails() {
             {/* Shipping Information */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <svg className="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -307,7 +307,7 @@ export default function AdminOrderDetails() {
             {/* Customer Information */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <svg className="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -335,7 +335,7 @@ export default function AdminOrderDetails() {
             {/* Order Status Management */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <svg className="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

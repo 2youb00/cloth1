@@ -26,6 +26,7 @@ import AdminOrderDetails from './components/admin/AdminOrderDetails'
 import AdminShippedOrders from './components/admin/AdminShippedOrders'
 import AdminCancelledOrders from './components/admin/AdminCancelledOrders'
 import SiteSettingsForm from './components/admin/SiteSettingsForm'
+import Notfoundpage from './components/404'
 
 export default function App() {
   const [siteSettings, setSiteSettings] = useState({
@@ -121,7 +122,7 @@ export default function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/order-confirmation" element={<OrderConfirmation />} />
-                <Route path="*" element={<h1>404: Page Not Found</h1>} />
+                <Route path="*" element={<Notfoundpage />} />
               </Routes>
             </main>
             <Footer siteSettings={siteSettings} />

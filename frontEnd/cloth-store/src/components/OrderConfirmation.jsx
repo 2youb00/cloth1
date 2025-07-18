@@ -23,7 +23,7 @@ export default function OrderConfirmation() {
           <p className="text-gray-600 mb-6">No order information available. Please return to the shop.</p>
           <Link
             to="/"
-            className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
           >
             Return to Shop
           </Link>
@@ -74,7 +74,7 @@ export default function OrderConfirmation() {
             {/* Products */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <svg className="w-5 h-5 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -108,7 +108,7 @@ export default function OrderConfirmation() {
               <div className="border-t border-gray-200 mt-4 pt-4">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-bold text-gray-900">Total Amount</span>
-                  <span className="text-xl font-bold text-indigo-600">DZD {order.totalAmount.toFixed(2)}</span>
+                  <span className="text-xl font-bold text-blue-600">DZD {order.totalAmount.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function OrderConfirmation() {
             {/* Shipping Information */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <svg className="w-5 h-5 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -227,7 +227,7 @@ export default function OrderConfirmation() {
           </Link>
           <button
             onClick={() => window.print()}
-            className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
           >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path

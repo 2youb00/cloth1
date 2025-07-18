@@ -169,13 +169,13 @@ export default function AdminDashboard() {
             <div>
               <p className="text-sm font-medium text-gray-600">Avg Order Value</p>
               <p className="text-3xl font-bold text-gray-900">{formatCurrency(stats.averageOrderValue || 0)}</p>
-              <p className="text-sm text-indigo-600 mt-1">
+              <p className="text-sm text-blue-600 mt-1">
                 <TrendingUp className="w-4 h-4 inline mr-1" />
                 +5.1% from last period
               </p>
             </div>
             <div className="p-3 bg-indigo-100 rounded-full">
-              <Users className="w-6 h-6 text-indigo-600" />
+              <Users className="w-6 h-6 text-blue-600" />
             </div>
           </div>
         </div>
@@ -233,7 +233,7 @@ export default function AdminDashboard() {
               <h2 className="text-xl font-semibold text-gray-900">Recent Orders</h2>
               <Link
                 to="/admin/orders"
-                className="text-indigo-600 hover:text-indigo-700 text-sm font-medium flex items-center"
+                className="text-blue-600 hover:text-indigo-700 text-sm font-medium flex items-center"
               >
                 <Eye className="w-4 h-4 mr-1" />
                 View all
@@ -248,13 +248,13 @@ export default function AdminDashboard() {
                     <div className="flex items-center space-x-4">
                       <div className="flex-shrink-0">
                         <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
-                          <ShoppingBag className="w-5 h-5 text-indigo-600" />
+                          <ShoppingBag className="w-5 h-5 text-blue-600" />
                         </div>
                       </div>
                       <div>
                         <Link
                           to={`/admin/orders/${order._id}`}
-                          className="font-medium text-gray-900 hover:text-indigo-600"
+                          className="font-medium text-gray-900 hover:text-blue-600"
                         >
                           #{order._id.slice(-8).toUpperCase()}
                         </Link>
@@ -291,7 +291,7 @@ export default function AdminDashboard() {
             <div className="space-y-3">
               <Link
                 to="/admin/products/new"
-                className="flex items-center w-full bg-indigo-600 text-white px-4 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
+                className="flex items-center w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
               >
                 <Plus className="w-5 h-5 mr-2" />
                 Add New Product
@@ -321,30 +321,7 @@ export default function AdminDashboard() {
           </div>
 
           {/* Low Stock Alert */}
-          {stats.lowStockProducts && stats.lowStockProducts.length > 0 && (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <AlertCircle className="w-5 h-5 mr-2 text-red-500" />
-                Low Stock Alert
-              </h2>
-              <div className="space-y-3">
-                {stats.lowStockProducts.slice(0, 5).map((product) => (
-                  <div key={product._id} className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <p className="text-sm font-medium text-gray-900 truncate">{product.name}</p>
-                      <p className="text-xs text-gray-500">Stock: {product.stock || 0}</p>
-                    </div>
-                    <Link
-                      to={`/admin/products/${product._id}`}
-                      className="text-indigo-600 hover:text-indigo-700 text-sm font-medium"
-                    >
-                      Update
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+        
 
           {/* Performance Metrics */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">

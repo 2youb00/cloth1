@@ -83,7 +83,7 @@ export default function ProductDetails() {
           <div className="text-red-500 text-xl mb-4">{error}</div>
           <button
             onClick={() => window.location.reload()}
-            className="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700"
+            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700"
           >
             Try Again
           </button>
@@ -283,7 +283,7 @@ export default function ProductDetails() {
                 <button
                   onClick={handleAddToCart}
                   disabled={!product.inStock}
-                  className="w-full bg-indigo-600 text-white py-4 px-6 rounded-xl font-semibold text-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all flex items-center justify-center"
+                  className="w-full bg-blue-600 text-white py-4 px-6 rounded-xl font-semibold text-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all flex items-center justify-center"
                 >
                   <ShoppingCart className="w-5 h-5 mr-2" />
                   {product.inStock ? "Add to Cart" : "Out of Stock"}
@@ -294,15 +294,15 @@ export default function ProductDetails() {
               <div className="border-t border-gray-200 pt-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="flex items-center text-sm text-gray-600">
-                    <Truck className="w-5 h-5 mr-2 text-indigo-600" />
+                    <Truck className="w-5 h-5 mr-2 text-blue-600" />
                     Free Shipping
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <Shield className="w-5 h-5 mr-2 text-indigo-600" />
+                    <Shield className="w-5 h-5 mr-2 text-blue-600" />
                     Secure Payment
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <RotateCcw className="w-5 h-5 mr-2 text-indigo-600" />
+                    <RotateCcw className="w-5 h-5 mr-2 text-blue-600" />
                     Easy Returns
                   </div>
                 </div>
