@@ -126,9 +126,22 @@ export default function Header({ siteSettings }) {
               </>
             )}
           </div>
+          <div className="flex gap-7">
+          <Link to="/cart" className="md:hidden hover:text-gray-300 transition-colors flex items-center relative ml-4">
+            <span className="bg-gray-200 rounded-full p-1.5 flex items-center justify-center relative">
+              <ShoppingCart size={20} className="text-black" />
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
+                  {cartCount > 99 ? "99+" : cartCount}
+                </span>
+              )}
+            </span>
+          </Link>
+
           <button className="md:hidden" onClick={toggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
+          </div>
         </div>
       </div>
 
