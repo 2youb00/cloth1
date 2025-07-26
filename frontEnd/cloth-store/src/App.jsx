@@ -27,6 +27,8 @@ import AdminShippedOrders from './components/admin/AdminShippedOrders'
 import AdminCancelledOrders from './components/admin/AdminCancelledOrders'
 import SiteSettingsForm from './components/admin/SiteSettingsForm'
 import Notfoundpage from './components/404'
+import AIChatWidget from './components/AIChatWidget'
+
 
 export default function App() {
   const [siteSettings, setSiteSettings] = useState({
@@ -111,6 +113,7 @@ export default function App() {
           <>
             <Header siteSettings={siteSettings} />
             <main className="flex-grow">
+               <AIChatWidget />
               <Routes>
                 <Route path="/all" element={<AllProducts title="All Products" />} />
                 <Route path="/product/:id" element={<ProductDetails />} />

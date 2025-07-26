@@ -39,13 +39,15 @@ const orderRoutes = require("./routes/orderRoutes")
 const adminRoutes = require("./routes/adminRoutes")
 const shippedOrderRoutes = require("./routes/shippedOrderRoutes")
 const siteSettingsRoutes = require("./routes/siteSettingsRoutes")
+const aiChatRoute = require('./routes/aiChat');
 
 app.use("/api/products", productRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/orders", orderRoutes)
 app.use("/api/admin", adminRoutes)
 app.use("/api/shipped-orders", shippedOrderRoutes)
-app.use("/api/site-settings", siteSettingsRoutes)
+app.use("/api/site-settings", siteSettingsRoutes) 
+app.use("/api/chat", aiChatRoute);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

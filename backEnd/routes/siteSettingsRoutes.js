@@ -41,7 +41,28 @@ router.get("/", async (req, res) => {
       })
       await settings.save()
     }
-    res.json(settings)
+    res.json({
+  siteName: settings.siteName,
+  heroImage: settings.heroImage,
+  heroTitle: settings.heroTitle,
+  heroSubtitle: settings.heroSubtitle,
+  categories: settings.categories,
+  footerText: settings.footerText,
+  contactEmail: settings.contactEmail,
+  contactPhone: settings.contactPhone,
+  socialLinks: settings.socialLinks,
+  heroImageDesktop: settings.heroImageDesktop,
+  heroImageMobile: settings.heroImageMobile,
+  emailNotifications: {
+    enabled: settings.emailNotifications.enabled,
+    adminEmail: settings.emailNotifications.adminEmail,
+    smtpHost: settings.emailNotifications.smtpHost,
+    smtpPort: settings.emailNotifications.smtpPort,
+    
+  }
+})
+
+
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
